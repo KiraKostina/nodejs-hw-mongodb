@@ -11,8 +11,8 @@ const contactsSchema = new Schema(
       required: true,
     },
     email: {
-      type: Email,
-      required: false,
+      type: String,
+      required: true | false,
     },
     contactType: {
       type: String,
