@@ -1,5 +1,5 @@
-import { ACCESS_TOKEN, REFRESH_TOKEN } from '../constants/index.js';
-import { registerUser } from '../services/auth.js';
+import { REFRESH_TOKEN_TTL } from '../constants/index.js';
+import { loginUser, registerUser } from '../services/auth.js';
 
 export const registerUserController = async (req, res) => {
   const user = await registerUser(req.body);
@@ -14,14 +14,14 @@ export const registerUserController = async (req, res) => {
 export const loginUserController = async (req, res) => {
   const session = await loginUser(req.body);
 
-  res.cookies('refreshToken', session.refreschToken, {
+  res.cookie('refreshToken', session.refreshToken, {
     httpOnly: true,
-    expires: new Date(Date.now() + REFRESH_TOKEN),
+    expires: new Date(Date.now() + REFRESH_TOKEN_TTL),
   });
 
   res.cookie('sessionId', session._id, {
     httpOnly: true,
-    expires: new Date(Date.now() + ACCESS_TOKEN),
+    expires: new Date(Date.now() + REFRESH_TOKEN_TTL),
   });
 
   res.json({
