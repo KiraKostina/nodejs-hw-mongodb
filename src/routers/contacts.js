@@ -6,6 +6,7 @@ import {
   getContactsController,
   patchContactController,
 } from '../controllers/contacts.js';
+import { authenticate } from '../middlewares/authenticate.js';
 import { isValidId } from '../middlewares/isValidId.js';
 import { validateBody } from '../middlewares/validateBody.js';
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
@@ -15,6 +16,8 @@ import {
 } from '../validation/contacts.js';
 
 const router = Router();
+
+router.use(authenticate);
 
 router.get('/', ctrlWrapper(getContactsController));
 
