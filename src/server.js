@@ -24,10 +24,8 @@ export const setupServer = () => {
       },
     }),
   );
-
-  app.use(router);
-
   app.use('/uploads', express.static(UPLOAD_DIR));
+  app.use(router);
 
   app.use('*', notFoundHandler);
 
