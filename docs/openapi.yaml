@@ -1,11 +1,11 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: <назва вашого додатку>
+  title: Contacts App
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  description: <опис вашого додатку>
+  description: This is a documentation of contacts app
 tags:
   # теги, що ви будете використовувати
   - name: Contacts
@@ -14,9 +14,13 @@ tags:
     description: Auth operations.
 servers:
   - url: http://localhost:3000
-  - url: #посилання на задеплоєний сайт
+  - url: https://example.com/api/v1
+    #посилання на задеплоєний сайт
 paths:
   # тут будуть посилання на ендпоінти
+  /contacts/{id}:
+    get:
+      $ref: ../swagger/paths/contacts/{id}/get.yaml
 components:
   securitySchemes:
     bearerAuth:
