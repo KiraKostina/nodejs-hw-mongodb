@@ -1,7 +1,3 @@
-# parameters - параметри запиту (для цього ендпоінту - параметр шляху :contactId)
-# responses - варіанти відповіді
-# 200
-# 404
 tags:
   - Contacts
 summary: Get contacts by id
@@ -33,7 +29,7 @@ responses:
               example: 200
             message:
               type: string
-              example: Successfully found student with id 66b906fac98596fbad9e2677!
+              example: Successfully found contact with id 66b906fac98596fbad9e2677!
             data:
               type: object
               $ref: '../../../components/schemas/contact.yaml'

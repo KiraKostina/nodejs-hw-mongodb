@@ -20,7 +20,7 @@ properties:
   email:
     description: "Contact's email"
     type: string
-    example: 'dmytro3@example.co'
+    example: 'dmytro3@example.com'
   contactType:
     description: 'What type of contact is this'
     type: string
@@ -28,7 +28,7 @@ properties:
   isFavourite:
     description: 'Whether is contact favourite'
     type: boolean
-    example:
+    example: true
   userId:
     description: "User's id"
     type: string
